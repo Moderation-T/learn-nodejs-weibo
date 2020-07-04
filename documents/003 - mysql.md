@@ -15,5 +15,9 @@
 
 > 更新限制 删除级联
 > 连表查询 :
+> 多对一查询的时候：
 > select \* from blogs inner join users on users.id = blogs.userid
 > select blogs.\*,users.username,users.nickname from blogs inner join users on users.id = blogs.userid
+> 一对多查询的时候：
+> select \* from users outer join blogs on users.id = blogs.userid
+> select users.\*,blogs.title,blogs.content from users outer join blogs on users.id = blogs.userid

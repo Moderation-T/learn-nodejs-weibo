@@ -145,7 +145,7 @@ const { Blog, User } = require('./model');
 // 查询总是
 !(async function () {
   // 查询10条记录 并且返回总数
-  const blogPageList = await User.findAndCountAll({
+  const blogPageListAndCount = await User.findAndCountAll({
     limit: 10,
     offset: 0,
     where: { userId: 1 },
@@ -153,9 +153,64 @@ const { Blog, User } = require('./model');
   });
 })();
 
+// 连表查询 依赖 belongsTo
+!(async function () {
+  // 查询10条记录 并且返回总数
+  const blogPageListWithUser = await Blog.findAndCountAll({
+    order: [['id', 'desc']],
+    include: [{ model: User, attributes: ['username'], where: { userName: 'zhangsan' } }],
+  });
+})();
+
+// 连表查询 依赖于 hasMany
+!(async function () {
+  // 查询10条记录 并且返回总数
+  const UserListWithBlog = await User.findAndCountAll({
+    order: [['id', 'desc']],
+    include: [{ model: Blog, attributes: ['title'] }],
+  });
+})();
+
 // update
+!(async function () {
+  // 查询10条记录 并且返回总数
+  const UserListWithBlog = await User.update({
+    nickName: '张三新',
+    where: {
+      userName: 'zhangsan',
+    },
+  });
+})();
 
 // delete
+!(async function () {
+  // 查询10条记录 并且返回总数
+  const destroyUser = await User.destroy({
+    where: {
+      userName: 'zhangsan',
+    },
+  });
+})();
 
 console.log((zhangsan = zhangsan.dataValue));
+```
+
+- 连接池
+
+```js
+const Sequelize = require('sequelize');
+
+const conf = {
+  host: 'localhost',
+  dialect: 'mysql',
+};
+
+// 线上环境使用连接池
+conf.pool = {
+  max: 5, // 连接池中最大的连接数量
+  min: 0, // 最小
+  idle: 10000, // 如果一个连接池 10s 之内么有被使用，则释放
+};
+
+const seq = new Sequelize('learn-node', 'root', 'root123456', conf);
 ```
