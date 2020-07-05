@@ -1,3 +1,8 @@
+/**
+ * @description redis 与 MySQL 的配置文件
+ * @author 一只鱼
+ */
+
 const { isProd } = require('../utils/env');
 
 let REDIS_CONF = {

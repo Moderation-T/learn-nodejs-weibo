@@ -1,6 +1,11 @@
+/**
+ * @description 创建 sequelize 实例
+ * @author 一只鱼
+ */
+
 const Sequelize = require('sequelize');
 const { MYSQL_CONF } = require('../conf/database');
-const { isProd } = require('../utils/env');
+const { isProd,isTest } = require('../utils/env');
 
 const { database, user, password, host } = MYSQL_CONF;
 
@@ -8,6 +13,10 @@ const conf = {
   host,
   dialect: 'mysql',
 };
+
+if(isTest) {
+  conf.logging = ()=>{} // 测试环境下不打印 SQL 语句
+}
 
 if(isProd) {
   conf.pool = {
