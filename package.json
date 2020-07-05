@@ -24,6 +24,11 @@
     "sequelize": "^6.3.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.4.0",
+    "jest": "^26.1.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
   }
 }
