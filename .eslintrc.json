@@ -6,7 +6,7 @@
     "node": true
   },
   "rules": {
-    "indent": ["error", 4], // 换行缩进 4
+    "indent": ["error", 2], // 换行缩进 2
     "quotes": [
       "error",
       "single", // 单引号
