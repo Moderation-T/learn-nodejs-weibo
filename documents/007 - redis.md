@@ -4,3 +4,4 @@
   > brew install redis
   > 启动：redis-server
   > 操作：redis-cli
+
