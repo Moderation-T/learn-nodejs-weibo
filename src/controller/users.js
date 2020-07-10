@@ -4,8 +4,8 @@
  */
 
 const { SuccessModel, ErrorModel } = require('../model/ResModel');
-const { registerUserNameNotExistInfo } = require('../model/ErrorInfo');
-const { getUserInfo } = require('../services/users');
+const { registerUserNameNotExistInfo, registerFailInfo } = require('../model/ErrorInfo');
+const { getUserInfo, userRegister } = require('../services/users');
 
 /**
  *判断用户是否存在
@@ -22,6 +22,16 @@ async function isUserExist(userName) {
   }
 }
 
+async function register({ userName, password, gender }) {
+  const registerInfo = await userRegister({ userName, password, gender });
+  if (registerInfo) {
+    return new SuccessModel(registerInfo);
+  } else {
+    return new ErrorModel(registerFailInfo);
+  }
+}
+
 module.exports = {
   isUserExist,
+  register,
 };

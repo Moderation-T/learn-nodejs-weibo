@@ -27,6 +27,17 @@ async function getUserInfo(userName, password) {
   return formatUserInfo(userInfo.dataValues);
 }
 
+async function userRegister({ userName, password, gender }) {
+  const userRegisterInfo = User.create({
+    userName,
+    password,
+    gender,
+  });
+
+  return userRegisterInfo;
+}
+
 module.exports = {
   getUserInfo,
+  userRegister,
 };
