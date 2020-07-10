@@ -4,6 +4,8 @@
  */
 
 const seq = require('./sequelize');
+// 引入模型
+require('./model/User'); 
 
 // 测试连接
 seq
