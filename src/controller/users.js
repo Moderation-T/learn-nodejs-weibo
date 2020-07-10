@@ -4,8 +4,8 @@
  */
 
 const { SuccessModel, ErrorModel } = require('../model/ResModel');
-const { registerUserNameNotExistInfo, registerFailInfo } = require('../model/ErrorInfo');
-const { getUserInfo, userRegister } = require('../services/users');
+const { registerUserNameNotExistInfo, registerFailInfo, registerUserNameExistInfo } = require('../model/ErrorInfo');
+const { getUserInfo, createUser } = require('../services/users');
 
 /**
  *判断用户是否存在
@@ -26,10 +26,20 @@ async function isUserExist(userName) {
  *用户注册
  *
  * @param {Object} { userName, password, gender } 用户的注册信息
+ * @param {String} userName
+ * @param {String} password
+ * @param {Number} gender 1-男 2-女 3-保密
  * @returns
  */
 async function register({ userName, password, gender }) {
-  const registerInfo = await userRegister({ userName, password, gender });
+  // 先做个判断看用户是否存在
+  const userInfo = await getUserInfo(userName);
+  if (userInfo) {
+    return new ErrorModel(registerUserNameExistInfo);
+  }
+
+  // 不存在进行注册
+  const registerInfo = await createUser({ userName, password, gender });
 
   if (registerInfo) {
     return new SuccessModel(registerInfo);

@@ -39,19 +39,22 @@ async function getUserInfo(userName, password) {
  * 用户注册
  *
  * @param {Object} { userName, password, gender } 用户信息
+ * @param {String} userName
+ * @param {String} password
+ * @param {Number} gender 1-男 2-女 3-保密
  * @returns 返回创建的用户信息
  */
-async function userRegister({ userName, password, gender }) {
-  const userRegisterInfo = User.create({
+async function createUser({ userName, password, gender }) {
+  const createUserInfo = User.create({
     userName,
     password: genPassword(password),
     gender,
   });
 
-  return userRegisterInfo;
+  return createUserInfo;
 }
 
 module.exports = {
   getUserInfo,
-  userRegister,
+  createUser,
 };
