@@ -5,7 +5,15 @@
 
 const { User } = require('../database/model/index');
 const { formatUserInfo } = require('../services/_format');
+const { genPassword } = require('../utils/cryp');
 
+/**
+ * 获取用户信息
+ *
+ * @param {*} userName 用户名
+ * @param {*} password 密码
+ * @returns 返回用户信息
+ */
 async function getUserInfo(userName, password) {
   let whereOpt = { userName: userName };
 
@@ -27,10 +35,16 @@ async function getUserInfo(userName, password) {
   return formatUserInfo(userInfo.dataValues);
 }
 
+/**
+ * 用户注册
+ *
+ * @param {Object} { userName, password, gender } 用户信息
+ * @returns 返回创建的用户信息
+ */
 async function userRegister({ userName, password, gender }) {
   const userRegisterInfo = User.create({
     userName,
-    password,
+    password: genPassword(password),
     gender,
   });
 

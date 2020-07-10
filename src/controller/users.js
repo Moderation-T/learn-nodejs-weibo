@@ -22,8 +22,15 @@ async function isUserExist(userName) {
   }
 }
 
+/**
+ *用户注册
+ *
+ * @param {Object} { userName, password, gender } 用户的注册信息
+ * @returns
+ */
 async function register({ userName, password, gender }) {
   const registerInfo = await userRegister({ userName, password, gender });
+
   if (registerInfo) {
     return new SuccessModel(registerInfo);
   } else {
