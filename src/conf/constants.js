@@ -4,6 +4,7 @@
  */
 
 module.exports = {
-  SECRET: 'Uds12@*__sdf212',
+  CRYPTO_KEY: 'Uds12@*__sdf212',
   DEFAULT_PICTURE: 'https://dwz.cn/rnTnftZs',
+  SESSION_KEY: '',
 };
