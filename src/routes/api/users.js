@@ -7,6 +7,7 @@ const router = require('koa-router')();
 const { isUserExist, register, login } = require('../../controller/users');
 const { genValidator } = require('../../middlewares/validator');
 const { userValidator } = require('../../validator/user');
+const loginCheckout = require('../../middlewares/loginCheckout');
 
 router.prefix('/api/user');
 
