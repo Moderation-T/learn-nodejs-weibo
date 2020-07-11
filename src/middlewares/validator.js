@@ -13,15 +13,8 @@ const { ErrorModel } = require('../model/ResModel');
  */
 function genValidator(validateFn) {
   async function validator(ctx, next) {
-    console.log('进到校验里来着');
-
     const error = validateFn(ctx.request.body);
-
-    console.log('验证错误', error);
-
     if (error) {
-      console.log('有错误');
-
       ctx.body = new ErrorModel(jsonSchemaFileInfo);
     } else {
       await next();
