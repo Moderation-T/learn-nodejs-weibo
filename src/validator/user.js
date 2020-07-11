@@ -47,6 +47,8 @@ const SCHEMA = {
 };
 
 function userValidator(data = {}) {
+  console.log('进入user校验里 data 是', data);
+
   return validator(SCHEMA, data);
 }
 
