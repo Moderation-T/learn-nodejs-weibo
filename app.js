@@ -5,6 +5,10 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 const logger = require('koa-logger');
+const session = require('koa-generic-session');
+const redisStore = require('koa-redis');
+const { SESSION_SECRET_KEY } = require('./src/conf/constants');
+const { REDIS_CONF } = require('./src/conf/database');
 
 const usersViewRouter = require('./src/routes/view/users');
 const usersApiRouter = require('./src/routes/api/users');
@@ -36,6 +40,25 @@ app.use(async (ctx, next) => {
   const ms = new Date() - start;
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
+
+// session
+app.keys = [SESSION_SECRET_KEY];
+app.use(
+  session({
+    key: 'weibo:sid',
+    prefix: 'weibo:sess',
+    // 配置cookie
+    cookie: {
+      path: '/',
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000,
+    },
+    // 配置redis
+    store: redisStore({
+      all: `${REDIS_CONF.host}:${REDIS_CONF.port}`,
+    }),
+  })
+);
 
 // routes
 app.use(usersViewRouter.routes(), usersViewRouter.allowedMethods());
