@@ -4,7 +4,7 @@
  */
 
 const router = require('koa-router')();
-const { isUserExist, register } = require('../../controller/users');
+const { isUserExist, register, login } = require('../../controller/users');
 const { genValidator } = require('../../middlewares/validator');
 const { userValidator } = require('../../validator/user');
 
@@ -29,7 +29,8 @@ router.post('/isExist', async (ctx, next) => {
 // 登陆
 router.post('/login', async (ctx, next) => {
   const { userName, password } = ctx.request.body;
-  ctx.body = {};
+  const result = await login(ctx, { userName, password });
+  ctx.body = result;
 });
 
 module.exports = router;

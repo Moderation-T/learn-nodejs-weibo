@@ -4,8 +4,14 @@
  */
 
 const { SuccessModel, ErrorModel } = require('../model/ResModel');
-const { registerUserNameNotExistInfo, registerFailInfo, registerUserNameExistInfo } = require('../model/ErrorInfo');
+const {
+  registerUserNameNotExistInfo,
+  registerFailInfo,
+  registerUserNameExistInfo,
+  loginFailInfo,
+} = require('../model/ErrorInfo');
 const { getUserInfo, createUser } = require('../services/users');
+const { genPassword } = require('../utils/cryp');
 
 /**
  *判断用户是否存在
@@ -48,7 +54,26 @@ async function register({ userName, password, gender }) {
   }
 }
 
+async function login(ctx, { userName, password }) {
+  // 查看是否有这个用户
+  const userInfo = await getUserInfo(userName, genPassword(password));
+
+  // 没有此用户则登陆失败
+  if (!userInfo) {
+    return new ErrorModel(loginFailInfo);
+  }
+
+  // 如果有则登陆成功
+  if (ctx.session.userInfo == null) {
+    // 设置 session
+    ctx.session.userInfo = userInfo;
+  }
+
+  return new SuccessModel();
+}
+
 module.exports = {
   isUserExist,
   register,
+  login,
 };
