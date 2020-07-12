@@ -1,3 +1,8 @@
+/**
+ * @description User 数据库模型单元测试
+ * @author 一只鱼
+ */
+
 const { User } = require('../../database/model/index');
 
 test('测试 User 模型各个属性是否符合预期', () => {
