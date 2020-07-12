@@ -9,8 +9,9 @@ const {
   registerFailInfo,
   registerUserNameExistInfo,
   loginFailInfo,
+  deleteUserFailInfo,
 } = require('../model/ErrorInfo');
-const { getUserInfo, createUser } = require('../services/users');
+const { getUserInfo, createUser, deleteUser } = require('../services/users');
 const { genPassword } = require('../utils/cryp');
 
 /**
@@ -54,6 +55,13 @@ async function register({ userName, password, gender }) {
   }
 }
 
+/**
+ * 用户登陆
+ *
+ * @param {Object} ctx koa ctx
+ * @param {Object} { userName, password }
+ * @returns
+ */
 async function login(ctx, { userName, password }) {
   // 查看是否有这个用户
   const userInfo = await getUserInfo(userName, genPassword(password));
@@ -72,8 +80,24 @@ async function login(ctx, { userName, password }) {
   return new SuccessModel();
 }
 
+/**
+ * 删除当前登陆用户
+ * 只在支持在测试环境使用
+ *
+ * @param {String} userName 用户名
+ */
+async function deleteCurrentUser(userName) {
+  const deleteUserResult = await deleteUser(userName);
+  if (deleteUserResult) {
+    return new SuccessModel();
+  } else {
+    return new ErrorModel(deleteUserFailInfo);
+  }
+}
+
 module.exports = {
   isUserExist,
   register,
   login,
+  deleteCurrentUser,
 };

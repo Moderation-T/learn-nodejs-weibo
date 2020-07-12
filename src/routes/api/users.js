@@ -1,13 +1,14 @@
 /**
- * @description 登陆注册路由
+ * @description 用户相关路由
  * @author 一只鱼
  */
 
 const router = require('koa-router')();
-const { isUserExist, register, login } = require('../../controller/users');
+const { isUserExist, register, login, deleteCurrentUser } = require('../../controller/users');
 const { genValidator } = require('../../middlewares/validator');
 const { userValidator } = require('../../validator/user');
-const loginCheckout = require('../../middlewares/loginCheckout');
+const { loginCheckout } = require('../../middlewares/loginCheckout');
+const { isTest } = require('../../utils/env');
 
 router.prefix('/api/user');
 
@@ -32,6 +33,15 @@ router.post('/login', async (ctx, next) => {
   const { userName, password } = ctx.request.body;
   const result = await login(ctx, { userName, password });
   ctx.body = result;
+});
+
+// 删除用户
+router.post('/delete', loginCheckout, async (ctx, next) => {
+  // 只有在测试环境支持删除操作
+  if (isTest) {
+    const { userName } = ctx.session.userInfo; // 只支持删除当前的用户
+    ctx.body = await deleteCurrentUser(userName);
+  }
 });
 
 module.exports = router;

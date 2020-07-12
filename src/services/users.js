@@ -45,7 +45,7 @@ async function getUserInfo(userName, password) {
  * @returns 返回创建的用户信息
  */
 async function createUser({ userName, password, gender }) {
-  const createUserInfo = User.create({
+  const createUserInfo = await User.create({
     userName,
     password: genPassword(password),
     gender,
@@ -54,7 +54,19 @@ async function createUser({ userName, password, gender }) {
   return createUserInfo;
 }
 
+async function deleteUser(userName) {
+  // 返回被删除的个数
+  const deleteUser = await User.destroy({
+    where: { userName },
+  });
+
+  console.log('查看用户删除结果', deleteUser);
+
+  return deleteUser > 0;
+}
+
 module.exports = {
   getUserInfo,
   createUser,
+  deleteUser,
 };

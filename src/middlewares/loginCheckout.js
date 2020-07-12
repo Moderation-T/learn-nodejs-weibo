@@ -20,7 +20,7 @@ async function loginCheckout(ctx, next) {
   }
 
   // 未登陆返回错误信息
-  new ErrorModel(loginCheckFailInfo);
+  ctx.body = new ErrorModel(loginCheckFailInfo);
 }
 
 /**
