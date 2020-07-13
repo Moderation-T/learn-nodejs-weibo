@@ -60,8 +60,6 @@ async function deleteUser(userName) {
     where: { userName },
   });
 
-  console.log('查看用户删除结果', deleteUser);
-
   return deleteUser > 0;
 }
 

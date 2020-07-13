@@ -29,7 +29,6 @@ function checkoutUserIsLogin(ctx) {
 
 router.get('/login', async (ctx, next) => {
   const { isLogin, userName } = checkoutUserIsLogin(ctx);
-  console.log(isLogin, userName);
 
   await ctx.render('login', {
     isLogin,
