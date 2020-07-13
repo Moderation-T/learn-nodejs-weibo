@@ -4,7 +4,8 @@ const views = require('koa-views');
 const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
-const logger = require('koa-logger');
+const fs = require('fs');
+const path = require('path');
 const morgan = require('koa-morgan');
 const session = require('koa-generic-session');
 const redisStore = require('koa-redis');
@@ -25,7 +26,6 @@ app.use(
   })
 );
 app.use(json());
-app.use(logger());
 app.use(require('koa-static')(__dirname + '/src/public'));
 
 app.use(
@@ -45,9 +45,11 @@ if (ENV !== 'production') {
   const writeStream = fs.createWriteStream(logFileName, {
     flags: 'a',
   });
-  app.use('combined', {
-    stream: writeStream,
-  });
+  app.use(
+    morgan('combined', {
+      stream: writeStream,
+    })
+  );
 }
 
 // session
