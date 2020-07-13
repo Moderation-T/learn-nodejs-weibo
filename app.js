@@ -5,6 +5,7 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 const logger = require('koa-logger');
+const morgan = require('koa-morgan');
 const session = require('koa-generic-session');
 const redisStore = require('koa-redis');
 const { SESSION_SECRET_KEY } = require('./src/conf/constants');
@@ -34,12 +35,20 @@ app.use(
 );
 
 // logger
-app.use(async (ctx, next) => {
-  const start = new Date();
-  await next();
-  const ms = new Date() - start;
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
-});
+const ENV = process.env.NODE_ENV;
+if (ENV !== 'production') {
+  // 开发或测试环境
+  app.use(morgan('dev'));
+} else {
+  // 生产环境
+  const logFileName = path.join(__dirname, 'src', 'logs', 'access.log');
+  const writeStream = fs.createWriteStream(logFileName, {
+    flags: 'a',
+  });
+  app.use('combined', {
+    stream: writeStream,
+  });
+}
 
 // session
 app.keys = [SESSION_SECRET_KEY];
