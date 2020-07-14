@@ -14,7 +14,7 @@ const { exists } = require('fs-extra');
 /**
  * 文件上传
  *
- * @param {Object} {name,type,size,path} {文件名称，文件类型，文件大小，文件默认路径}
+ * @param {Object} {name,type,size,filePath} {文件名称，文件类型，文件大小，文件默认路径}
  */
 
 const MAX_SIZE = 1024 * 1024 * 1024; // 1M
