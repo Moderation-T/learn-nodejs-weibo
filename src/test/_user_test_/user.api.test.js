@@ -64,12 +64,12 @@ test('测试用户登陆是否成功', async () => {
 // 修改用户信息 json schema 验证
 test('输入非法的用户信息修改信息应该失败', async () => {
   const newUserInfo = {
-    city: '1',
+    city: '0',
     nickName: 'oneFish',
     picture: '/tiancai.png',
   };
 
-  const res = await server.post('/api/user/changeInfo').send(newUserInfo).set('Cookie', COOKIE);
+  const res = await server.patch('/api/user/changeInfo').send(newUserInfo).set('Cookie', COOKIE);
   expect(res.body.errno).not.toBe(0);
 });
 
@@ -80,7 +80,7 @@ test('测试用户修改信息是否成功', async () => {
     nickName: 'oneFish',
     picture: '/tiancai.png',
   };
-  const res = await server.post('/api/user/changeInfo').send(newUserInfo).set('Cookie', COOKIE);
+  const res = await server.patch('/api/user/changeInfo').send(newUserInfo).set('Cookie', COOKIE);
 
   expect(res.body.errno).toBe(0);
 });
@@ -92,7 +92,7 @@ test('测试用户修改密码是否成功', async () => {
     newPassword: 'newPassword123456',
   };
 
-  const res = await server.post('/api/user/changePassword').send(newPasswordMsg).set('Cookie', COOKIE);
+  const res = await server.patch('/api/user/changePassword').send(newPasswordMsg).set('Cookie', COOKIE);
 
   expect(res.body.errno).toBe(0);
 });

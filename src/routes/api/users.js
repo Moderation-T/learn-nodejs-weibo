@@ -50,14 +50,14 @@ router.post('/delete', loginCheckout, async (ctx, next) => {
 });
 
 // 修改用户信息
-router.patch('/changeInfo', loginCheckout, async (ctx, next) => {
+router.patch('/changeInfo', loginCheckout, genValidator(userValidator), async (ctx, next) => {
   const { userName } = ctx.session.userInfo;
   const { nickName, city, picture } = ctx.request.body;
 
   ctx.body = await updateUserInfo(ctx, { userName, nickName, city, picture });
 });
 
-// 修改密码
+// 修改密码 [bug: 因为忘记return new SuccessModel() 所以总是 undefined了]
 router.patch('/changePassword', loginCheckout, async (ctx, next) => {
   const { password, newPassword } = ctx.request.body;
   const { userName } = ctx.session.userInfo;
