@@ -44,6 +44,7 @@ router.get('/register', async (ctx, next) => {
 
 // 设置页
 router.get('/setting', async (ctx, next) => {
+
   await ctx.render('setting', ctx.session.userInfo);
 });
 
