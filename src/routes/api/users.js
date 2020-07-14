@@ -11,12 +11,14 @@ const {
   deleteCurrentUser,
   updateUserInfo,
   updatePassword,
+  logout,
 } = require('../../controller/users');
 const { genValidator } = require('../../middlewares/validator');
 const { userValidator } = require('../../validator/user');
 const { loginCheckout } = require('../../middlewares/loginCheckout');
 const { isTest } = require('../../utils/env');
 const { genPassword } = require('../../utils/cryp');
+const { SuccessModel } = require('../../model/ResModel');
 
 router.prefix('/api/user');
 
@@ -67,6 +69,8 @@ router.patch('/changePassword', loginCheckout, async (ctx, next) => {
 });
 
 // 退出登陆
-router.post('/logout');
+router.post('/logout', loginCheckout, async (ctx, next) => {
+  ctx.body = await logout(ctx);
+});
 
 module.exports = router;

@@ -136,6 +136,11 @@ async function updatePassword(ctx, { userName, password, newPassword }) {
   }
 }
 
+function logout(ctx) {
+  delete ctx.session.userInfo;
+  return new SuccessModel();
+}
+
 module.exports = {
   isUserExist,
   register,
@@ -143,4 +148,5 @@ module.exports = {
   deleteCurrentUser,
   updateUserInfo,
   updatePassword,
+  logout,
 };
