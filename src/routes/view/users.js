@@ -27,6 +27,7 @@ function checkoutUserIsLogin(ctx) {
   return data;
 }
 
+// 登录页
 router.get('/login', async (ctx, next) => {
   const { isLogin, userName } = checkoutUserIsLogin(ctx);
 
@@ -36,8 +37,14 @@ router.get('/login', async (ctx, next) => {
   });
 });
 
+// 注册页
 router.get('/register', async (ctx, next) => {
   await ctx.render('register', {});
+});
+
+// 设置页
+router.get('/setting', async (ctx, next) => {
+  await ctx.render('setting', ctx.session.userInfo);
 });
 
 module.exports = router;
