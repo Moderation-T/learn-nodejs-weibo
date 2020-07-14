@@ -11,6 +11,7 @@ const {
   loginFailInfo,
   deleteUserFailInfo,
   changeInfoFailInfo,
+  changePasswordFailInfo,
 } = require('../model/ErrorInfo');
 const { getUserInfo, createUser, deleteUser, updateUser } = require('../services/users');
 const { genPassword } = require('../utils/cryp');
@@ -116,10 +117,30 @@ async function updateUserInfo(ctx, { userName, nickName, city, picture }) {
   }
 }
 
+/**
+ * 修改密码
+ *
+ * @param {*} ctx koa ctx
+ * @param {*} { userName, password, newPassword } {用户名，旧密码，新密码}
+ */
+async function updatePassword(ctx, { userName, password, newPassword }) {
+  const updateInfo = await updateUser({ userName, password, newPassword });
+  if (updateInfo) {
+    // 更新 session
+    Object.assign(ctx.session.userInfo, {
+      password,
+    });
+    new SuccessModel();
+  } else {
+    new ErrorModel(changePasswordFailInfo);
+  }
+}
+
 module.exports = {
   isUserExist,
   register,
   login,
   deleteCurrentUser,
   updateUserInfo,
+  updatePassword,
 };

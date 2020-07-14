@@ -63,7 +63,7 @@ async function deleteUser(userName) {
   return deleteUser > 0;
 }
 
-async function updateUser({ userName, nickName, city, picture }) {
+async function updateUser({ userName, nickName, city, picture, password, newPassword }) {
   const whereOption = { userName };
   const updateOption = {};
   if (nickName) {
@@ -74,6 +74,14 @@ async function updateUser({ userName, nickName, city, picture }) {
   }
   if (picture) {
     updateOption.picture = picture;
+  }
+
+  if (newPassword) {
+    updateOption.password = newPassword;
+  }
+
+  if (password) {
+    whereOption.password = password;
   }
 
   const updateUser = await User.update(updateOption, {
