@@ -48,11 +48,11 @@ async function register({ userName, password, gender }) {
   }
 
   // 不存在进行注册
-  const registerInfo = await createUser({ userName, password, gender });
-
-  if (registerInfo) {
+  try {
+    const registerInfo = await createUser({ userName, password, gender });
     return new SuccessModel(registerInfo);
-  } else {
+  } catch (ex) {
+    console.log(ex.message, ex.stack);
     return new ErrorModel(registerFailInfo);
   }
 }
