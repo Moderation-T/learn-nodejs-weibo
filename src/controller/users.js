@@ -10,8 +10,9 @@ const {
   registerUserNameExistInfo,
   loginFailInfo,
   deleteUserFailInfo,
+  changeInfoFailInfo,
 } = require('../model/ErrorInfo');
-const { getUserInfo, createUser, deleteUser } = require('../services/users');
+const { getUserInfo, createUser, deleteUser, updateUser } = require('../services/users');
 const { genPassword } = require('../utils/cryp');
 
 /**
@@ -95,9 +96,30 @@ async function deleteCurrentUser(userName) {
   }
 }
 
+/**
+ * 更新用户信息
+ * @param {Object} ctx koa ctx
+ * @param {Object} {userName,nickName,city,picture} {用户名，昵称，城市，图片地址}
+ */
+async function updateUserInfo(ctx, { userName, nickName, city, picture }) {
+  const updateInfo = await updateUser({ userName, nickName, city, picture });
+  if (updateInfo) {
+    // 更新 session
+    Object.assign(ctx.session.userInfo, {
+      nickName,
+      city,
+      picture,
+    });
+    new SuccessModel();
+  } else {
+    new ErrorModel(changeInfoFailInfo);
+  }
+}
+
 module.exports = {
   isUserExist,
   register,
   login,
   deleteCurrentUser,
+  updateUserInfo,
 };

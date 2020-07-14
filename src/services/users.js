@@ -63,8 +63,29 @@ async function deleteUser(userName) {
   return deleteUser > 0;
 }
 
+async function updateUser({ userName, nickName, city, picture }) {
+  const whereOption = { userName };
+  const updateOption = {};
+  if (nickName) {
+    updateOption.nickName = nickName;
+  }
+  if (city) {
+    updateOption.city = city;
+  }
+  if (picture) {
+    updateOption.picture = picture;
+  }
+
+  const updateUser = await User.update(updateOption, {
+    where: whereOption,
+  });
+
+  return updateUser[0] > 0;
+}
+
 module.exports = {
   getUserInfo,
   createUser,
   deleteUser,
+  updateUser,
 };

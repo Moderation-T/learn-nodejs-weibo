@@ -174,12 +174,14 @@ const { Blog, User } = require('./model');
 // update
 !(async function () {
   // 查询10条记录 并且返回总数
-  const UserListWithBlog = await User.update({
-    nickName: '张三新',
-    where: {
-      userName: 'zhangsan',
-    },
-  });
+  const UserListWithBlog = await User.update(
+    { nickName: '张三新' },
+    {
+      where: {
+        userName: 'zhangsan',
+      },
+    }
+  );
 })();
 
 // delete

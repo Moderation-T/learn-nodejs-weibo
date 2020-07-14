@@ -4,7 +4,7 @@
  */
 
 const router = require('koa-router')();
-const { isUserExist, register, login, deleteCurrentUser } = require('../../controller/users');
+const { isUserExist, register, login, deleteCurrentUser, updateUserInfo } = require('../../controller/users');
 const { genValidator } = require('../../middlewares/validator');
 const { userValidator } = require('../../validator/user');
 const { loginCheckout } = require('../../middlewares/loginCheckout');
@@ -15,24 +15,19 @@ router.prefix('/api/user');
 // 注册路由
 router.post('/register', genValidator(userValidator), async (ctx, next) => {
   const { userName, password, gender } = ctx.request.body;
-  const result = await register({ userName, password, gender });
-  ctx.body = result;
+  ctx.body = await register({ userName, password, gender });
 });
 
 // 用户是否存在
 router.post('/isExist', async (ctx, next) => {
   const { userName, password } = ctx.request.body;
-  // controller 判断用户是否存在
-  const result = await isUserExist(userName);
-
-  ctx.body = result;
+  ctx.body = await isUserExist(userName);
 });
 
 // 登陆
 router.post('/login', async (ctx, next) => {
   const { userName, password } = ctx.request.body;
-  const result = await login(ctx, { userName, password });
-  ctx.body = result;
+  ctx.body = await login(ctx, { userName, password });
 });
 
 // 删除用户
@@ -43,5 +38,19 @@ router.post('/delete', loginCheckout, async (ctx, next) => {
     ctx.body = await deleteCurrentUser(userName);
   }
 });
+
+// 修改用户信息
+router.patch('/changeInfo', loginCheckout, async (ctx, next) => {
+  const { userName } = ctx.session.userInfo;
+  const { nickName, city, picture } = ctx.request.body;
+
+  ctx.body = await updateUserInfo(ctx, { userName, nickName, city, picture });
+});
+
+// 修改密码
+router.patch('/changePassword');
+
+// 退出登陆
+router.post('/logout');
 
 module.exports = router;
