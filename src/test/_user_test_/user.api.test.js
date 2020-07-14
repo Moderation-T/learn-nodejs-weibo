@@ -16,7 +16,7 @@ let COOKIE = '';
 
 /**
  * @description 测试流程
- * 用户注册 -> 若重复注册应注册不成功  -> 判断用户是否存在应存在 -> 登陆 json schema 验证 -> 用户登陆  -> 删除用户  -> 再次判断用户是否存在应不存在
+ * 用户注册 -> 若重复注册应注册不成功  -> 判断用户是否存在应存在 -> 登陆 json schema 验证 -> 用户登陆  -> 修改用户信息  -> 修改密码  -> 删除用户  -> 退出登陆  ->  再次判断用户是否存在应不存在
  * */
 
 // 用户注册
@@ -61,9 +61,52 @@ test('测试用户登陆是否成功', async () => {
   COOKIE = res.headers['set-cookie'].join(';');
 });
 
+// 修改用户信息 json schema 验证
+test('输入非法的用户信息修改信息应该失败', async () => {
+  const newUserInfo = {
+    city: '1',
+    nickName: 'oneFish',
+    picture: '/tiancai.png',
+  };
+
+  const res = await server.post('/api/user/changeInfo').send(newUserInfo).set('Cookie', COOKIE);
+  expect(res.body.errno).not.toBe(0);
+});
+
+// 修改用户信息
+test('测试用户修改信息是否成功', async () => {
+  const newUserInfo = {
+    city: 'dalian',
+    nickName: 'oneFish',
+    picture: '/tiancai.png',
+  };
+  const res = await server.post('/api/user/changeInfo').send(newUserInfo).set('Cookie', COOKIE);
+
+  expect(res.body.errno).toBe(0);
+});
+
+// 修改用户密码
+test('测试用户修改密码是否成功', async () => {
+  const newPasswordMsg = {
+    password: user.password,
+    newPassword: 'newPassword123456',
+  };
+
+  const res = await server.post('/api/user/changePassword').send(newPasswordMsg).set('Cookie', COOKIE);
+
+  expect(res.body.errno).toBe(0);
+});
+
 // 删除用户
 test('登陆测试成功后删除用户，避免数据库中存入不必要的测试数据', async () => {
   const res = await server.post('/api/user/delete').set('cookie', COOKIE);
+
+  expect(res.body.errno).toBe(0);
+});
+
+// 退出登陆
+test('测试退出登陆是否成功', async () => {
+  const res = await server.post('/api/user/logout').set('cookie', COOKIE);
 
   expect(res.body.errno).toBe(0);
 });

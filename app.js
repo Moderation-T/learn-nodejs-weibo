@@ -9,7 +9,7 @@ const path = require('path');
 const morgan = require('koa-morgan');
 const session = require('koa-generic-session');
 const redisStore = require('koa-redis');
-const static = require('koa-static');
+const koaStatic = require('koa-static');
 
 const { SESSION_SECRET_KEY } = require('./src/conf/constants');
 const { REDIS_CONF } = require('./src/conf/database');
@@ -29,8 +29,8 @@ app.use(
   })
 );
 app.use(json());
-app.use(static(__dirname + '/src/public'));
-app.use(static(path.join(__dirname, 'uploadFiles')));
+app.use(koaStatic(__dirname + '/src/public'));
+app.use(koaStatic(path.join(__dirname, 'uploadFiles')));
 
 app.use(
   views(__dirname + '/src/views', {

@@ -111,9 +111,9 @@ async function updateUserInfo(ctx, { userName, nickName, city, picture }) {
       city,
       picture,
     });
-    new SuccessModel();
+    return new SuccessModel();
   } else {
-    new ErrorModel(changeInfoFailInfo);
+    return new ErrorModel(changeInfoFailInfo);
   }
 }
 
@@ -130,9 +130,9 @@ async function updatePassword(ctx, { userName, password, newPassword }) {
     Object.assign(ctx.session.userInfo, {
       password,
     });
-    new SuccessModel();
+    return new SuccessModel();
   } else {
-    new ErrorModel(changePasswordFailInfo);
+    return new ErrorModel(changePasswordFailInfo);
   }
 }
 
