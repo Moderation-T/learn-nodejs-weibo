@@ -1,5 +1,6 @@
 /**
  * @description 连接 redis 的方法 get set
+ * @author 一只鱼
  */
 const redis = require('redis');
 const { REDIS_CONF } = require('../conf/database');
@@ -15,7 +16,7 @@ redisClient.on('error', (err) => {
  *
  * @param {String} key 键
  * @param {String} val 值
- * @param {Number} timeout 过期时间
+ * @param {Number} timeout 过期时间 s
  */
 function set(key, val, timeout = 60 * 60) {
   if (typeof val === 'object') {
