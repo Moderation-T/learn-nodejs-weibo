@@ -4,11 +4,11 @@
  */
 
 const seq = require('../sequelize');
-const { STRING, TEXT } = require('../types');
+const { STRING, TEXT, INTEGER } = require('../types');
 
 const Blog = seq.define('blog', {
   userId: {
-    type: STRING,
+    type: INTEGER,
     allowNull: false,
     comment: '关联 user 的外键',
   },
