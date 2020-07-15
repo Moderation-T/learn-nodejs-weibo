@@ -3,6 +3,8 @@
  * @author 一只鱼
  */
 
+const xss = require('xss');
+
 const { getBlogList, createBlog } = require('../services/blog');
 const { SuccessModel, ErrorModel } = require('../model/ResModel');
 const { createBlogFailInfo, getBlogListFailInfo } = require('../model/ErrorInfo');
@@ -14,7 +16,7 @@ const { createBlogFailInfo, getBlogListFailInfo } = require('../model/ErrorInfo'
  */
 async function create({ userId, content, image }) {
   try {
-    const newBlog = await createBlog({ userId, content, image });
+    const newBlog = await createBlog({ userId, content: xss(content), image });
     return new SuccessModel(newBlog);
   } catch (ex) {
     console.log(ex.message, ex.stack);
