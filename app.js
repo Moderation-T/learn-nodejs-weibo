@@ -14,9 +14,11 @@ const koaStatic = require('koa-static');
 const { SESSION_SECRET_KEY } = require('./src/conf/constants');
 const { REDIS_CONF } = require('./src/conf/database');
 
-const usersViewRouter = require('./src/routes/view/users');
 const usersApiRouter = require('./src/routes/api/users');
 const utilsApiRouter = require('./src/routes/api/utils');
+
+const usersViewRouter = require('./src/routes/view/users');
+const blogHomeViewRouter = require('./src/routes/view/blog-home');
 const errorViewRouter = require('./src/routes/view/error');
 
 // error handler
@@ -76,9 +78,12 @@ app.use(
 );
 
 // routes
-app.use(usersViewRouter.routes(), usersViewRouter.allowedMethods());
 app.use(usersApiRouter.routes(), usersApiRouter.allowedMethods());
 app.use(utilsApiRouter.routes(), utilsApiRouter.allowedMethods());
+
+app.use(usersViewRouter.routes(), usersViewRouter.allowedMethods());
+app.use(blogHomeViewRouter.routes(), blogHomeViewRouter.allowedMethods());
+
 // 错误处理的路由 一定要放在最后面
 app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods());
 
