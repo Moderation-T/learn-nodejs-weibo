@@ -27,8 +27,8 @@ async function create({ userId, content, image }) {
  *
  * @param {*} { userName, pageIndex, pageSize }
  */
-async function getBlogHomeList({ userName, pageIndex, pageSize }) {
-  const list = await getBlogList({ userName, pageIndex, pageSize });
+async function getBlogHomeList({ pageIndex, pageSize }) {
+  const list = await getBlogList({ pageIndex, pageSize });
 
   if (list) {
     const { count, blogList } = list;

@@ -17,6 +17,7 @@ const { REDIS_CONF } = require('./src/conf/database');
 const usersApiRouter = require('./src/routes/api/users');
 const utilsApiRouter = require('./src/routes/api/utils');
 const blogHomeApiRouter = require('./src/routes/api/blog-home');
+const profileApiRouter = require('./src/routes/api/blog-profile');
 
 const usersViewRouter = require('./src/routes/view/users');
 const blogHomeViewRouter = require('./src/routes/view/blog-home');
@@ -83,6 +84,7 @@ app.use(
 app.use(usersApiRouter.routes(), usersApiRouter.allowedMethods());
 app.use(utilsApiRouter.routes(), utilsApiRouter.allowedMethods());
 app.use(blogHomeApiRouter.routes(), blogHomeApiRouter.allowedMethods());
+app.use(profileApiRouter.routes(), profileApiRouter.allowedMethods());
 
 app.use(usersViewRouter.routes(), usersViewRouter.allowedMethods());
 app.use(blogHomeViewRouter.routes(), blogHomeViewRouter.allowedMethods());

@@ -33,8 +33,10 @@ async function createBlog({ userId, content, image }) {
 async function getBlogList({ userName, pageIndex, pageSize = DEFAULT_PAGESIZE }) {
   let userWhereOptions = {};
   if (userName) {
-    userWhereOption.userName = userName;
+    userWhereOptions.userName = userName;
   }
+
+  console.log(userWhereOptions);
 
   const list = await Blog.findAndCountAll({
     limit: pageSize,
