@@ -18,10 +18,12 @@ const usersApiRouter = require('./src/routes/api/users');
 const utilsApiRouter = require('./src/routes/api/utils');
 const blogHomeApiRouter = require('./src/routes/api/blog-home');
 const profileApiRouter = require('./src/routes/api/blog-profile');
+const squareApiRouter = require('./src/routes/api/blog-square');
 
 const usersViewRouter = require('./src/routes/view/users');
 const blogHomeViewRouter = require('./src/routes/view/blog-home');
 const blogProfileViewRouter = require('./src/routes/view/blog-profile');
+const blogSquareViewRouter = require('./src/routes/view/blog-square');
 const errorViewRouter = require('./src/routes/view/error');
 
 // error handler
@@ -85,10 +87,12 @@ app.use(usersApiRouter.routes(), usersApiRouter.allowedMethods());
 app.use(utilsApiRouter.routes(), utilsApiRouter.allowedMethods());
 app.use(blogHomeApiRouter.routes(), blogHomeApiRouter.allowedMethods());
 app.use(profileApiRouter.routes(), profileApiRouter.allowedMethods());
+app.use(squareApiRouter.routes(), squareApiRouter.allowedMethods());
 
 app.use(usersViewRouter.routes(), usersViewRouter.allowedMethods());
 app.use(blogHomeViewRouter.routes(), blogHomeViewRouter.allowedMethods());
 app.use(blogProfileViewRouter.routes(), blogProfileViewRouter.allowedMethods());
+app.use(blogSquareViewRouter.routes(), blogSquareViewRouter.allowedMethods());
 
 // 错误处理的路由 一定要放在最后面
 app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods());
