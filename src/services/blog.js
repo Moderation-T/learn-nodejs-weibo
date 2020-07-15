@@ -8,6 +8,12 @@ const { DEFAULT_PAGESIZE } = require('../conf/constants');
 const User = require('../database/model/User');
 const { formatUserInfo } = require('../services/_format');
 
+/**
+ * 新建微博内容
+ *
+ * @param {Object} { userId, content, image }
+ * @returns
+ */
 async function createBlog({ userId, content, image }) {
   const blog = await Blog.create({
     userId,
@@ -46,7 +52,8 @@ async function getBlogList({ userName, pageIndex, pageSize = DEFAULT_PAGESIZE })
   // list.count 总数
   // list.rows 查询结果
 
-  let blogList = list.map((row) => row.dataValues);
+  let blogList = list.rows.map((row) => row.dataValues);
+
   // 格式化 user
   blogList = blogList.map((row) => {
     const user = row.user.dataValues;

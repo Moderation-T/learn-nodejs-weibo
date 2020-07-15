@@ -11,7 +11,7 @@ const { DEFAULT_PICTURE } = require('../conf/constants');
  * @param {Object} userInfo 用户信息
  * @returns {Object} userInfo 返回处理图片信息后的用户信息
  */
-async function _formatUserPicture(userInfo) {
+function _formatUserPicture(userInfo) {
   if (userInfo.picture == null) {
     userInfo.picture = DEFAULT_PICTURE;
   }

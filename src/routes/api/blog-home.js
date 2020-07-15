@@ -11,6 +11,7 @@ const { blogValidator } = require('../../validator/blog');
 
 router.prefix('/api/blog');
 
+// 新建微博
 router.post('/create', loginCheckout, genValidator(blogValidator), async (ctx, next) => {
   const { content, image } = ctx.request.body;
   const userId = ctx.session.userInfo.id;

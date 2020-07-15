@@ -5,7 +5,7 @@
 
 const { getBlogList, createBlog } = require('../services/blog');
 const { SuccessModel, ErrorModel } = require('../model/ResModel');
-const { createBlogFailInfo } = require('../model/ErrorInfo');
+const { createBlogFailInfo, getBlogListFailInfo } = require('../model/ErrorInfo');
 
 /**
  * 创建博客
@@ -28,7 +28,20 @@ async function create({ userId, content, image }) {
  * @param {*} { userName, pageIndex, pageSize }
  */
 async function getBlogHomeList({ userName, pageIndex, pageSize }) {
-  const BlogList = await getBlogList({ userName, pageIndex, pageSize });
+  const list = await getBlogList({ userName, pageIndex, pageSize });
+
+  if (list) {
+    const { count, blogList } = list;
+    return new SuccessModel({
+      isEmpty: blogList.length === 0,
+      blogList,
+      count,
+      pageSize,
+      pageIndex,
+    });
+  } else {
+    return new ErrorModel(getBlogListFailInfo);
+  }
 }
 
 module.exports = {

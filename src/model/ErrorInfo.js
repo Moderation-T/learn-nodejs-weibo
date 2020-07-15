@@ -64,6 +64,11 @@ module.exports = {
     errno: 10012,
     message: '取消关注失败',
   },
+  // 获取微博列表失败
+  getBlogListFailInfo: {
+    errno: 11003,
+    message: '获取微博列表失败，请重试',
+  },
   // 创建微博失败
   createBlogFailInfo: {
     errno: 11001,

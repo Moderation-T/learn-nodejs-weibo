@@ -6,21 +6,23 @@
 const router = require('koa-router')();
 
 const { getBlogHomeList } = require('../../controller/blog-home');
+const { DEFAULT_PAGESIZE } = require('../../conf/constants');
 
 router.get('/index', async (ctx, next) => {
-  const pageIndex = 0;
-  const pageSize = 10;
-
   // controller 获取微博列表
-  // const blogListData = await getBlogHomeList({ pageIndex, pageSize });
+  const blogListData = await getBlogHomeList({ pageIndex: 0, pageSize: DEFAULT_PAGESIZE });
+
+  const { isEmpty, blogList, count, pageIndex, pageSize } = blogListData.data;
+  console.log('blogList的结果', blogList);
+  console.log('blogList user的结果', blogList.user);
 
   await ctx.render('index', {
     blogData: {
-      isEmpty: true,
-      blogList: [],
-      count: 0,
-      pageSize: 0,
-      pageIndex: 0,
+      isEmpty,
+      blogList,
+      count,
+      pageSize,
+      pageIndex,
     },
     userData: {
       userInfo: {},
