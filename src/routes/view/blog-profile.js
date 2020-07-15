@@ -8,14 +8,14 @@ const router = require('koa-router')();
 const { getBlogHomeList } = require('../../controller/blog-home');
 const { DEFAULT_PAGESIZE } = require('../../conf/constants');
 
-router.get('/', async (ctx, next) => {
+router.get('/profile', async (ctx, next) => {
   // controller 获取微博列表
   const blogListData = await getBlogHomeList({ pageIndex: 0, pageSize: DEFAULT_PAGESIZE });
 
   const { isEmpty, blogList, count, pageIndex, pageSize } = blogListData.data;
   const { userInfo } = ctx.session;
 
-  await ctx.render('index', {
+  await ctx.render('profile', {
     blogData: {
       isEmpty,
       blogList,
