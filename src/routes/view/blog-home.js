@@ -13,8 +13,7 @@ router.get('/index', async (ctx, next) => {
   const blogListData = await getBlogHomeList({ pageIndex: 0, pageSize: DEFAULT_PAGESIZE });
 
   const { isEmpty, blogList, count, pageIndex, pageSize } = blogListData.data;
-  console.log('blogList的结果', blogList);
-  console.log('blogList user的结果', blogList.user);
+  const { userInfo } = ctx.session;
 
   await ctx.render('index', {
     blogData: {
@@ -25,7 +24,7 @@ router.get('/index', async (ctx, next) => {
       pageIndex,
     },
     userData: {
-      userInfo: {},
+      userInfo,
       fansData: {
         count: 0,
         list: [],
