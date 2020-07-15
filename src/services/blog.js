@@ -3,10 +3,20 @@
  * @author 一只鱼
  */
 
-const { Blog } = require('../database/model/Blog');
+const { Blog } = require('../database/model/index');
 const { DEFAULT_PAGESIZE } = require('../conf/constants');
 const User = require('../database/model/User');
 const { formatUserInfo } = require('../services/_format');
+
+async function createBlog({ userId, content, image }) {
+  const blog = await Blog.create({
+    userId,
+    content,
+    image,
+  });
+
+  return blog.dataValues;
+}
 
 /**
  * 获取微博列表 如果有 userName 就是个人主页列表；如果没有 userName 就是首页列表
@@ -51,5 +61,6 @@ async function getBlogList({ userName, pageIndex, pageSize = DEFAULT_PAGESIZE })
 }
 
 module.exports = {
+  createBlog,
   getBlogList,
 };
