@@ -6,7 +6,7 @@ const redis = require('redis');
 const { REDIS_CONF } = require('../conf/database');
 
 // 创建客户端
-const redisClient = redis.createClient(REDIS_CONF.host, REDIS_CONF.port);
+const redisClient = redis.createClient(REDIS_CONF.port, REDIS_CONF.host);
 redisClient.on('error', (err) => {
   console.log('redis error', err);
 });
@@ -22,6 +22,8 @@ function set(key, val, timeout = 60 * 60) {
   if (typeof val === 'object') {
     val = JSON.stringify(val);
   }
+
+  console.log('应该写入的 key 值', key);
 
   redisClient.set(key, val);
   redisClient.expire(key, timeout);

@@ -4,13 +4,13 @@
  */
 
 const router = require('koa-router')();
+const { getBlogSquareCacheList } = require('../../cache/blog');
 
-const { getBlogSquareList } = require('../../controller/blog-square');
 const { DEFAULT_PAGESIZE } = require('../../conf/constants');
 
 router.get('/square', async (ctx, next) => {
   // controller 获取微博列表
-  const blogListData = await getBlogSquareList({ pageIndex: 0, pageSize: DEFAULT_PAGESIZE });
+  const blogListData = await getBlogSquareCacheList({ pageIndex: 0, pageSize: DEFAULT_PAGESIZE });
 
   const { isEmpty, blogList, count, pageIndex, pageSize } = blogListData.data;
 
