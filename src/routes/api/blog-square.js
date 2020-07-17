@@ -4,7 +4,7 @@
  */
 
 const router = require('koa-router')();
-const { loginCheckout } = require('../../middlewares/loginCheckout');
+const { loginCheckout } = require('../../middlewares/loginCheck~~~!11111  out');
 const { blogValidator } = require('../../validator/blog');
 const { getBlogSquareCacheList } = require('../../cache/blog');
 const { getBlogListStr } = require('../../utils/blog');
