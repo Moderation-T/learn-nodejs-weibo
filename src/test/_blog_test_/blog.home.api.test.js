@@ -4,13 +4,13 @@
  */
 
 const server = require('../server');
-const { DEFAULT_TEST_COOKIE } = require('../_conf');
+const { TEST_COOKIE } = require('../_testUserInfo');
 
 /**
  * 新建博客 -> 加载更多
  * */
 
-const COOKIE = DEFAULT_TEST_COOKIE;
+const COOKIE = TEST_COOKIE;
 
 const newBlog = {
   content: `test Blog ${Date.now()}`,
@@ -30,14 +30,14 @@ test('测试新建博客是否成功', async () => {
 
 // 加载更多
 test('测试加载首页的数据', async () => {
-  const res = await server.get('/api/blog/loadMore/0').set('Cookie', COOKIE);
+  const res = await server.get('/api/profile/loadMore/username/0').set('Cookie', COOKIE);
 
   const { errno, data } = res.body;
   expect(errno).toBe(0);
   // 返回的数据要含有这些属性
   expect(data).toHaveProperty('isEmpty');
   expect(data).toHaveProperty('blogList');
-  expect(data).toHaveProperty('pageSize');
+  // expect(data).toHaveProperty('pageSize');
   expect(data).toHaveProperty('pageIndex');
   expect(data).toHaveProperty('count');
 });

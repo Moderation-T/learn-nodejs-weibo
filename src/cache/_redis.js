@@ -22,9 +22,6 @@ function set(key, val, timeout = 60 * 60) {
   if (typeof val === 'object') {
     val = JSON.stringify(val);
   }
-
-  console.log('应该写入的 key 值', key);
-
   redisClient.set(key, val);
   redisClient.expire(key, timeout);
 }

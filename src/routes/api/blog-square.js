@@ -17,7 +17,6 @@ router.get('/loadMore/:pageIndex', loginCheckout, async (ctx, next) => {
   let { pageIndex } = ctx.params;
   pageIndex = parseInt(pageIndex);
   const list = await getBlogSquareCacheList({ pageIndex, pageSize: DEFAULT_PAGESIZE });
-  console.log('看看列表返回了什么', list);
 
   // 渲染模板
   list.data.blogListTpl = getBlogListStr(list.data.blogList);
