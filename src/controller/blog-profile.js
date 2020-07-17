@@ -16,7 +16,7 @@ async function getBlogProfileList({ userName, pageIndex, pageSize }) {
   const list = await getBlogList({ userName, pageIndex, pageSize });
 
   if (list) {
-    const { count, blogList } = list;
+    const { count, blogList, pageSize } = list;
     return new SuccessModel({
       isEmpty: blogList.length === 0,
       blogList,

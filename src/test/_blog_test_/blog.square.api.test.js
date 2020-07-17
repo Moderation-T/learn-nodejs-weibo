@@ -1,5 +1,5 @@
 /**
- * @description blog-profile 模块测试
+ * @description blog-square 模块测试
  * @author 一只鱼
  */
 
@@ -15,7 +15,7 @@ const USERNAME = TEST_COOKIE;
 
 // 加载更多
 test('测试加载个人主页的数据', async () => {
-  const res = await server.get(`/api/profile/loadMore/${USERNAME}/0`).set('Cookie', COOKIE);
+  const res = await server.get(`/api/square/loadMore/0`).set('Cookie', COOKIE);
 
   const { errno, data } = res.body;
   expect(errno).toBe(0);

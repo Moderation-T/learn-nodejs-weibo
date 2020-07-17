@@ -37,7 +37,7 @@ test('测试加载首页的数据', async () => {
   // 返回的数据要含有这些属性
   expect(data).toHaveProperty('isEmpty');
   expect(data).toHaveProperty('blogList');
-  // expect(data).toHaveProperty('pageSize');
+  expect(data).toHaveProperty('pageSize');
   expect(data).toHaveProperty('pageIndex');
   expect(data).toHaveProperty('count');
 });
