@@ -21,7 +21,7 @@ router.post('/create', loginCheckout, genValidator(blogValidator), async (ctx, n
   ctx.body = await create({ userId, content, image });
 });
 
-// 加载更多
+// 加载d
 router.get('/loadMore/:pageIndex', loginCheckout, async (ctx, next) => {
   let { pageIndex } = ctx.params;
   pageIndex = parseInt(pageIndex);

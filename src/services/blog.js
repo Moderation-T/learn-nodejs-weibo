@@ -66,6 +66,7 @@ async function getBlogList({ userName, pageIndex, pageSize = DEFAULT_PAGESIZE })
   return {
     count: list.count,
     blogList,
+    pageSize,
   };
 }
 
