@@ -10,8 +10,8 @@ const { genPassword } = require('../utils/cryp');
 /**
  * 获取用户信息
  *
- * @param {*} userName 用户名
- * @param {*} password 密码
+ * @param {String} userName 用户名
+ * @param {String} password 密码
  * @returns 返回用户信息
  */
 async function getUserInfo(userName, password) {
