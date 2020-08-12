@@ -1,4 +1,8 @@
 - 下载 安装 建库
+
+- 修改密码 SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
+  mysql -u root
+
 - 建表基本的 sql 语句
 
 - 基本操作
