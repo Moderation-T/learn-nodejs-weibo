@@ -54,6 +54,12 @@ async function createUser({ userName, password, gender }) {
   return createUserInfo;
 }
 
+/**
+ *删除用户 
+ *
+ * @param {String} userName 用户名称
+ * @returns
+ */
 async function deleteUser(userName) {
   // 返回被删除的个数
   const deleteUser = await User.destroy({
@@ -63,6 +69,12 @@ async function deleteUser(userName) {
   return deleteUser > 0;
 }
 
+/**
+ * 更新用户信息
+ *
+ * @param {*} { userName, nickName, city, picture, password, newPassword }
+ * @returns
+ */
 async function updateUser({ userName, nickName, city, picture, password, newPassword }) {
   const whereOption = { userName };
   const updateOption = {};

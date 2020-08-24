@@ -6,6 +6,7 @@
 const router = require('koa-router')();
 
 const { getBlogHomeList } = require('../../controller/blog-home');
+const { getFanList } = require('../../controller/user-relation')
 const { DEFAULT_PAGESIZE } = require('../../conf/constants');
 
 router.get('/', async (ctx, next) => {
@@ -14,6 +15,10 @@ router.get('/', async (ctx, next) => {
 
   const { isEmpty, blogList, count, pageIndex, pageSize } = blogListData.data;
   const { userInfo } = ctx.session;
+
+  // controller 获取粉丝列表
+  const fanList = await getFanList({ userId: userInfo.id })
+  console.log(fanList);
 
   await ctx.render('index', {
     blogData: {
