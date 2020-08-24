@@ -7,7 +7,7 @@ const seq = require('../sequelize');
 const { STRING, TEXT, INTEGER } = require('../types');
 
 const Blog = seq.define('blog', {
-  userId: {
+  user_id: {
     type: INTEGER,
     allowNull: false,
     comment: '关联 user 的外键',
