@@ -7,6 +7,7 @@ const router = require('koa-router')();
 
 const { getBlogProfileList } = require('../../controller/blog-profile');
 const { getCurrentUser } = require('../../controller/users')
+const { getFanList } = require('../../controller/user-relation')
 const { DEFAULT_PAGESIZE } = require('../../conf/constants');
 
 router.get('/profile', async (ctx, next) => {
@@ -16,6 +17,11 @@ router.get('/profile', async (ctx, next) => {
 
   const { isEmpty, blogList, count, pageIndex, pageSize } = blogListData.data;
   const { userInfo } = ctx.session;
+
+  // 获取粉丝列表
+  // controller 获取粉丝列表
+  const fanList = await getFanList({ userId: userInfo.id })
+  console.log('fanList', fanList);
 
   await ctx.render('profile', {
     blogData: {
@@ -42,6 +48,8 @@ router.get('/profile', async (ctx, next) => {
 
 router.get('/profile/:userName', async (ctx, next) => {
   const { userName } = ctx.params;
+  const currentUserName = ctx.session.userInfo.userName
+  const isMe = userName === currentUserName
   // controller 获取微博列表
   const blogListData = await getBlogProfileList({ userName, pageIndex: 0, pageSize: DEFAULT_PAGESIZE });
 
@@ -50,7 +58,8 @@ router.get('/profile/:userName', async (ctx, next) => {
   // 当前用户信息
   const userInfoData = await getCurrentUser(userName)
   const userInfo = userInfoData.data
-  console.log(userInfo);
+
+
 
   await ctx.render('profile', {
     blogData: {
@@ -71,6 +80,8 @@ router.get('/profile/:userName', async (ctx, next) => {
         list: [],
       },
       atCount: 0,
+      isMe,
+      amIFollowed: false
     },
   });
 });

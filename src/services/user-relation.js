@@ -20,13 +20,16 @@ async function getUsersByFollowerId({ userId }) {
     ],
   })
 
+
   // list.count 总数
   // list.rows 查询结果
 
-  // let userList = list.rows.map((row) => row.dataValues);
+  let fanList = list.rows.map((row) => row.dataValues);
+  const { count } = list
+  console.log('fanList', fanList.user_relations);
 
   // 格式化 user
-  // blogList = blogList.map((row) => {
+  // fanList = fanList.map((row) => {
   //   const user = row.user.dataValues;
   //   row.user = formatUserInfo(user);
   //   return row;
