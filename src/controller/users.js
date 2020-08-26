@@ -136,9 +136,22 @@ async function updatePassword(ctx, { userName, password, newPassword }) {
   }
 }
 
+
+/**
+ * 退出登录
+ *
+ * @param {*} ctx koa ctx
+ * @returns
+ */
 function logout(ctx) {
   delete ctx.session.userInfo;
   return new SuccessModel();
+}
+
+async function getCurrentUser(userName) {
+  const userInfo = await getUserInfo(userName);
+
+  return new SuccessModel(userInfo);
 }
 
 module.exports = {
@@ -149,4 +162,5 @@ module.exports = {
   updateUserInfo,
   updatePassword,
   logout,
+  getCurrentUser
 };
