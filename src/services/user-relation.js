@@ -26,18 +26,12 @@ async function getUsersByFollowerId({ userId }) {
 
   let fanList = list.rows.map((row) => row.dataValues);
   const { count } = list
-  console.log('fanList', fanList.user_relations);
 
-  // 格式化 user
-  // fanList = fanList.map((row) => {
-  //   const user = row.user.dataValues;
-  //   row.user = formatUserInfo(user);
-  //   return row;
-  // });
+
 
   return {
-    count: 0,
-    fanList: []
+    count,
+    fanList
   };
 
 

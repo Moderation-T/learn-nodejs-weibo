@@ -16,7 +16,7 @@ const { formatUserInfo } = require('../services/_format');
  */
 async function createBlog({ userId, content, image }) {
   const blog = await Blog.create({
-    userId,
+    user_id: userId,
     content,
     image,
   });

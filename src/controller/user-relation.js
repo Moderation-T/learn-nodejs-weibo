@@ -16,17 +16,14 @@ const { addFollowerFailInfo } = require('../model/ErrorInfo')
 async function getFanList({ userId }) {
   const list = await getUsersByFollowerId({ userId });
 
-  return userId
 
-  // if (list) {
-  //   const { count, fanList } = list;
-  //   return new SuccessModel({
-  //     fanList,
-  //     count,
-  //   });
-  // } else {
-  //   return new ErrorModel(addFollowerFailInfo);
-  // }
+
+  if (list) {
+    const { count, fanList } = list;
+    return new SuccessModel(list);
+  } else {
+    return new ErrorModel();
+  }
 }
 
 module.exports = {

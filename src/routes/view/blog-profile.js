@@ -20,8 +20,8 @@ router.get('/profile', async (ctx, next) => {
 
   // 获取粉丝列表
   // controller 获取粉丝列表
-  const fanList = await getFanList({ userId: userInfo.id })
-  console.log('fanList', fanList);
+  const fanListData = await getFanList({ userId: userInfo.id })
+  const { count: fansCount, fanList } = fanListData.data
 
   await ctx.render('profile', {
     blogData: {
@@ -34,8 +34,8 @@ router.get('/profile', async (ctx, next) => {
     userData: {
       userInfo,
       fansData: {
-        count: 0,
-        list: [],
+        count: fansCount,
+        list: fanList,
       },
       followersData: {
         count: 0,
@@ -59,7 +59,9 @@ router.get('/profile/:userName', async (ctx, next) => {
   const userInfoData = await getCurrentUser(userName)
   const userInfo = userInfoData.data
 
-
+  // 获取粉丝列表
+  const fanListData = await getFanList({ userId: userInfo.id })
+  const { count: fansCount, fanList } = fanListData.data
 
   await ctx.render('profile', {
     blogData: {
@@ -72,8 +74,8 @@ router.get('/profile/:userName', async (ctx, next) => {
     userData: {
       userInfo,
       fansData: {
-        count: 0,
-        list: [],
+        count: fansCount,
+        list: fanList,
       },
       followersData: {
         count: 0,
