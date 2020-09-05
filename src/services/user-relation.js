@@ -1,5 +1,6 @@
 const User = require('../database/model/User');
 const UserRelation = require('../database/model/UserRelation')
+const Sequelize = require('sequelize')
 
 
 /**
@@ -14,7 +15,10 @@ async function getUsersByFollowerId({ userId }) {
       {
         model: UserRelation,
         where: {
-          follower_id: userId
+          follower_id: userId,
+          user_id: {
+            [Sequelize.Op.ne]: userId
+          }
         },
       },
     ],
@@ -42,7 +46,10 @@ async function getUsersByUserId({ userId }) {
       },
     ],
     where: {
-      user_id: userId
+      user_id: userId,
+      follower_id: {
+        [Sequelize.Op.ne]: userId
+      }
     },
   })
 
