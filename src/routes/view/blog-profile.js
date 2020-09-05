@@ -7,7 +7,7 @@ const router = require('koa-router')();
 
 const { getBlogProfileList } = require('../../controller/blog-profile');
 const { getCurrentUser } = require('../../controller/users')
-const { getFanList } = require('../../controller/user-relation')
+const { getFanList, getFollowerList } = require('../../controller/user-relation')
 const { DEFAULT_PAGESIZE } = require('../../conf/constants');
 
 router.get('/profile', async (ctx, next) => {
@@ -22,6 +22,11 @@ router.get('/profile', async (ctx, next) => {
   // controller 获取粉丝列表
   const fanListData = await getFanList({ userId: userInfo.id })
   const { count: fansCount, fanList } = fanListData.data
+
+  // controller 获取关注人列表 user_id === userId 我关注的
+  const followerListData = await getFollowerList({ userId: userInfo.id })
+  const { count: followerCount, followerList } = followerListData.data
+
 
   await ctx.render('profile', {
     blogData: {
@@ -38,8 +43,8 @@ router.get('/profile', async (ctx, next) => {
         list: fanList,
       },
       followersData: {
-        count: 0,
-        list: [],
+        count: followerCount,
+        list: followerList,
       },
       atCount: 0,
     },
@@ -65,6 +70,12 @@ router.get('/profile/:userName', async (ctx, next) => {
 
   const amIFollowed = fanList.map(item => item.userName).includes(currentUserName)
 
+  // controller 获取关注人列表 user_id === userId 我关注的
+  const followerListData = await getFollowerList({ userId: userInfo.id })
+  const { count: followerCount, followerList } = followerListData.data
+
+  // 关注人列表
+
   await ctx.render('profile', {
     blogData: {
       isEmpty,
@@ -80,8 +91,8 @@ router.get('/profile/:userName', async (ctx, next) => {
         list: fanList,
       },
       followersData: {
-        count: 0,
-        list: [],
+        count: followerCount,
+        list: followerList,
       },
       atCount: 0,
       isMe,

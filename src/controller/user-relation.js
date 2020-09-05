@@ -3,7 +3,7 @@
  * @author 一只鱼
  */
 
-const { getUsersByFollowerId, addFollower, removeFollower } = require('../services/user-relation');
+const { getUsersByFollowerId, getUsersByUserId, addFollower, removeFollower } = require('../services/user-relation');
 const { SuccessModel, ErrorModel } = require('../model/ResModel');
 const { addFollowerFailInfo, deleteFollowerFailInfo } = require('../model/ErrorInfo')
 
@@ -18,6 +18,18 @@ async function getFanList({ userId }) {
 
   if (list) {
     const { count, fanList } = list;
+    return new SuccessModel(list);
+  } else {
+    return new ErrorModel();
+  }
+}
+
+// 获取关注人列表
+async function getFollowerList({ userId }) {
+  const list = await getUsersByUserId({ userId });
+
+  if (list) {
+    const { count, followerList } = list;
     return new SuccessModel(list);
   } else {
     return new ErrorModel();
@@ -47,5 +59,5 @@ async function unFollow(myUserId, currentUserId) {
 }
 
 module.exports = {
-  getFanList, follow, unFollow
+  getFanList, getFollowerList, follow, unFollow
 };
