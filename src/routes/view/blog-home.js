@@ -10,11 +10,14 @@ const { getFanList, getFollowerList } = require('../../controller/user-relation'
 const { DEFAULT_PAGESIZE } = require('../../conf/constants');
 
 router.get('/', async (ctx, next) => {
-  // controller 获取微博列表
-  const blogListData = await getBlogHomeList({ pageIndex: 0, pageSize: DEFAULT_PAGESIZE });
 
-  const { isEmpty, blogList, count, pageIndex, pageSize } = blogListData.data;
   const { userInfo } = ctx.session;
+
+  // controller 获取所有关注人的微博
+  const blogListData = await getBlogHomeList({ userId: userInfo.id, pageIndex: 0, pageSize: DEFAULT_PAGESIZE });
+  const { isEmpty, blogList, count, pageIndex, pageSize } = blogListData.data;
+
+
 
   // controller 获取粉丝列表 -> follower_id === userId 关注我的
   const fanListData = await getFanList({ userId: userInfo.id })

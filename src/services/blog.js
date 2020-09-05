@@ -6,6 +6,8 @@
 const { Blog } = require('../database/model/index');
 const { DEFAULT_PAGESIZE } = require('../conf/constants');
 const User = require('../database/model/User');
+const UserRelation = require('../database/model/UserRelation');
+
 const { formatUserInfo } = require('../services/_format');
 
 /**
@@ -68,7 +70,48 @@ async function getBlogList({ userName, pageIndex, pageSize = DEFAULT_PAGESIZE })
   };
 }
 
+async function getBlogListByFollower({ userId, pageIndex, pageSize = DEFAULT_PAGESIZE }) {
+  const list = await Blog.findAndCountAll({
+    limit: pageSize,
+    offset: pageIndex * pageSize,
+    order: [['id', 'desc']],
+    include: [
+      {
+        model: User,
+        attributes: ['userName', 'nickName', 'picture'],
+      },
+      {
+        model: UserRelation,
+        where: { user_id: userId },
+      },
+    ],
+  });
+
+  // list.count 总数
+  // list.rows 查询结果
+
+  let blogList = list.rows.map((row) => row.dataValues);
+  console.log(blogList);
+
+
+  // 格式化 user
+  blogList = blogList.map((row) => {
+    const user = row.user.dataValues;
+    row.user = formatUserInfo(user);
+    return row;
+  });
+
+
+  return {
+    count: list.count,
+    blogList,
+    pageSize,
+  };
+
+}
+
 module.exports = {
   createBlog,
   getBlogList,
+  getBlogListByFollower
 };
