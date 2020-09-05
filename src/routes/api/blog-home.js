@@ -24,8 +24,9 @@ router.post('/create', loginCheckout, genValidator(blogValidator), async (ctx, n
 // 加载d
 router.get('/loadMore/:pageIndex', loginCheckout, async (ctx, next) => {
   let { pageIndex } = ctx.params;
+  const { id } = ctx.session.userInfo
   pageIndex = parseInt(pageIndex);
-  const list = await getBlogHomeList({ pageIndex });
+  const list = await getBlogHomeList({ userId: id, pageIndex });
 
   // 渲染模板
   list.data.blogListTpl = getBlogListStr(list.data.blogList);
