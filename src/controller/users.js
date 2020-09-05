@@ -148,6 +148,7 @@ function logout(ctx) {
   return new SuccessModel();
 }
 
+// 获取当前用户信息
 async function getCurrentUser(userName) {
   const userInfo = await getUserInfo(userName);
 

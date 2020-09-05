@@ -6,6 +6,7 @@
 const { User } = require('../database/model/index');
 const { formatUserInfo } = require('../services/_format');
 const { genPassword } = require('../utils/cryp');
+const { addFollower } = require('./user-relation')
 
 /**
  * 获取用户信息
@@ -45,11 +46,19 @@ async function getUserInfo(userName, password) {
  * @returns 返回创建的用户信息
  */
 async function createUser({ userName, password, gender }) {
+  // 创建用户
   const createUserInfo = await User.create({
     userName,
     password: genPassword(password),
     gender,
   });
+
+  console.log('createUserInfo', createUserInfo);
+
+  const userId = createUserInfo.dataValues.id
+
+  // 创建用户的同时让用户自己关注自己 目的是方便首页渲染关注人微博的时候也展示自己的微博
+  await addFollower(userId, userId)
 
   return createUserInfo;
 }
