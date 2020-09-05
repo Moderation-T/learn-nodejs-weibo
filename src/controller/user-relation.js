@@ -3,9 +3,9 @@
  * @author 一只鱼
  */
 
-const { getUsersByFollowerId } = require('../services/user-relation');
+const { getUsersByFollowerId, addFollower, removeFollower } = require('../services/user-relation');
 const { SuccessModel, ErrorModel } = require('../model/ResModel');
-const { addFollowerFailInfo } = require('../model/ErrorInfo')
+const { addFollowerFailInfo, deleteFollowerFailInfo } = require('../model/ErrorInfo')
 
 /**
  * 获取粉丝列表
@@ -16,8 +16,6 @@ const { addFollowerFailInfo } = require('../model/ErrorInfo')
 async function getFanList({ userId }) {
   const list = await getUsersByFollowerId({ userId });
 
-
-
   if (list) {
     const { count, fanList } = list;
     return new SuccessModel(list);
@@ -26,6 +24,28 @@ async function getFanList({ userId }) {
   }
 }
 
+// 关注
+async function follow(myUserId, currentUserId) {
+  // service
+  try {
+    const result = await addFollower(myUserId, currentUserId)
+    return new SuccessModel()
+  } catch (error) {
+    return new ErrorModel(addFollowerFailInfo)
+  }
+}
+
+// 取消关注
+async function unFollow(myUserId, currentUserId) {
+  // service
+  try {
+    const result = await removeFollower(myUserId, currentUserId)
+    return new SuccessModel()
+  } catch (error) {
+    return new ErrorModel(deleteFollowerFailInfo)
+  }
+}
+
 module.exports = {
-  getFanList,
+  getFanList, follow, unFollow
 };

@@ -63,6 +63,8 @@ router.get('/profile/:userName', async (ctx, next) => {
   const fanListData = await getFanList({ userId: userInfo.id })
   const { count: fansCount, fanList } = fanListData.data
 
+  const amIFollowed = fanList.map(item => item.userName).includes(currentUserName)
+
   await ctx.render('profile', {
     blogData: {
       isEmpty,
@@ -83,7 +85,7 @@ router.get('/profile/:userName', async (ctx, next) => {
       },
       atCount: 0,
       isMe,
-      amIFollowed: false
+      amIFollowed
     },
   });
 });
