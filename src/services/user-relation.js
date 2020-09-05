@@ -34,22 +34,24 @@ async function getUsersByFollowerId({ userId }) {
 
 // 获取关注人列表
 async function getUsersByUserId({ userId }) {
-  const list = await User.findAndCountAll({
+  const list = await UserRelation.findAndCountAll({
     include: [
       {
-        model: UserRelation,
-        where: {
-          user_id: userId
-        },
+        model: User,
+
       },
     ],
+    where: {
+      user_id: userId
+    },
   })
 
   // list.count 总数
   // list.rows 查询结果
 
-  let followerList = list.rows.map((row) => row.dataValues);
+  let followerList = list.rows.map((row) => row.dataValues).map(item => item.user.dataValues);
   const { count } = list
+
 
   return {
     count,
