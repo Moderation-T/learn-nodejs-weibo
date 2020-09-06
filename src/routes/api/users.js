@@ -16,6 +16,7 @@ const {
 const { genValidator } = require('../../middlewares/validator');
 const { userValidator } = require('../../validator/user');
 const { loginCheckout } = require('../../middlewares/loginCheckout');
+const { getFollowerList } = require('../../controller/user-relation')
 const { isTest } = require('../../utils/env');
 const { genPassword } = require('../../utils/cryp');
 const { SuccessModel } = require('../../model/ResModel');
@@ -72,5 +73,17 @@ router.patch('/changePassword', loginCheckout, async (ctx, next) => {
 router.post('/logout', loginCheckout, async (ctx, next) => {
   ctx.body = await logout(ctx);
 });
+
+// 获取关注人列表
+router.get('/getAtList', loginCheckout, async (ctx, next) => {
+
+  const { id: userId } = ctx.session.userInfo
+
+  // controller
+  // controller 获取关注人列表 user_id === userId 我关注的
+  const followerListData = await getFollowerList({ userId })
+  const { followerList } = followerListData.data
+  ctx.body = followerList.map(item => item.userName)
+})
 
 module.exports = router;
