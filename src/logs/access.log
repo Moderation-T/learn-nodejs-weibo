@@ -4,3 +4,5 @@
 ::1 - - [14/Jul/2020:03:04:20 +0000] "GET /login HTTP/1.1" 200 1118 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
 ::1 - - [14/Jul/2020:03:04:21 +0000] "GET /favicon.ico HTTP/1.1" 404 9 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
 ::1 - - [14/Jul/2020:03:04:24 +0000] "GET / HTTP/1.1" 404 9 "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+::1 - - [08/Sep/2020:02:10:25 +0000] "GET /api/articles?article_type=techical HTTP/1.1" 404 9 "-" "PostmanRuntime/7.26.3"
+::1 - - [08/Sep/2020:02:12:24 +0000] "GET /api/articles?article_type=techical HTTP/1.1" 404 9 "-" "PostmanRuntime/7.26.3"

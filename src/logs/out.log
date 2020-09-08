@@ -1,0 +1,304 @@
+2020-09-08 10:09:53: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:09:53:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:09:53:   errno: 'ECONNREFUSED',
+2020-09-08 10:09:53:   code: 'ECONNREFUSED',
+2020-09-08 10:09:53:   syscall: 'connect',
+2020-09-08 10:09:53:   address: '127.0.0.1',
+2020-09-08 10:09:53:   port: 6379
+2020-09-08 10:09:53: }
+2020-09-08 10:09:53: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:09:53:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:09:53:   errno: 'ECONNREFUSED',
+2020-09-08 10:09:53:   code: 'ECONNREFUSED',
+2020-09-08 10:09:53:   syscall: 'connect',
+2020-09-08 10:09:53:   address: '127.0.0.1',
+2020-09-08 10:09:53:   port: 6379
+2020-09-08 10:09:53: }
+2020-09-08 10:09:53: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:09:53:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:09:53:   errno: 'ECONNREFUSED',
+2020-09-08 10:09:53:   code: 'ECONNREFUSED',
+2020-09-08 10:09:53:   syscall: 'connect',
+2020-09-08 10:09:53:   address: '127.0.0.1',
+2020-09-08 10:09:53:   port: 6379
+2020-09-08 10:09:53: }
+2020-09-08 10:09:54: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:09:54:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:09:54:   errno: 'ECONNREFUSED',
+2020-09-08 10:09:54:   code: 'ECONNREFUSED',
+2020-09-08 10:09:54:   syscall: 'connect',
+2020-09-08 10:09:54:   address: '127.0.0.1',
+2020-09-08 10:09:54:   port: 6379
+2020-09-08 10:09:54: }
+2020-09-08 10:09:55: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:09:55:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:09:55:   errno: 'ECONNREFUSED',
+2020-09-08 10:09:55:   code: 'ECONNREFUSED',
+2020-09-08 10:09:55:   syscall: 'connect',
+2020-09-08 10:09:55:   address: '127.0.0.1',
+2020-09-08 10:09:55:   port: 6379
+2020-09-08 10:09:55: }
+2020-09-08 10:09:57: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:09:57:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:09:57:   errno: 'ECONNREFUSED',
+2020-09-08 10:09:57:   code: 'ECONNREFUSED',
+2020-09-08 10:09:57:   syscall: 'connect',
+2020-09-08 10:09:57:   address: '127.0.0.1',
+2020-09-08 10:09:57:   port: 6379
+2020-09-08 10:09:57: }
+2020-09-08 10:09:59: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:09:59:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:09:59:   errno: 'ECONNREFUSED',
+2020-09-08 10:09:59:   code: 'ECONNREFUSED',
+2020-09-08 10:09:59:   syscall: 'connect',
+2020-09-08 10:09:59:   address: '127.0.0.1',
+2020-09-08 10:09:59:   port: 6379
+2020-09-08 10:09:59: }
+2020-09-08 10:10:04: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:10:04:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:10:04:   errno: 'ECONNREFUSED',
+2020-09-08 10:10:04:   code: 'ECONNREFUSED',
+2020-09-08 10:10:04:   syscall: 'connect',
+2020-09-08 10:10:04:   address: '127.0.0.1',
+2020-09-08 10:10:04:   port: 6379
+2020-09-08 10:10:04: }
+2020-09-08 10:10:12: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:10:12:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:10:12:   errno: 'ECONNREFUSED',
+2020-09-08 10:10:12:   code: 'ECONNREFUSED',
+2020-09-08 10:10:12:   syscall: 'connect',
+2020-09-08 10:10:12:   address: '127.0.0.1',
+2020-09-08 10:10:12:   port: 6379
+2020-09-08 10:10:12: }
+2020-09-08 10:10:26: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:10:26:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:10:26:   errno: 'ECONNREFUSED',
+2020-09-08 10:10:26:   code: 'ECONNREFUSED',
+2020-09-08 10:10:26:   syscall: 'connect',
+2020-09-08 10:10:26:   address: '127.0.0.1',
+2020-09-08 10:10:26:   port: 6379
+2020-09-08 10:10:26: }
+2020-09-08 10:10:50: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:10:50:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:10:50:   errno: 'ECONNREFUSED',
+2020-09-08 10:10:50:   code: 'ECONNREFUSED',
+2020-09-08 10:10:50:   syscall: 'connect',
+2020-09-08 10:10:50:   address: '127.0.0.1',
+2020-09-08 10:10:50:   port: 6379
+2020-09-08 10:10:50: }
+2020-09-08 10:11:30: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:11:30:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:11:30:   errno: 'ECONNREFUSED',
+2020-09-08 10:11:30:   code: 'ECONNREFUSED',
+2020-09-08 10:11:30:   syscall: 'connect',
+2020-09-08 10:11:30:   address: '127.0.0.1',
+2020-09-08 10:11:30:   port: 6379
+2020-09-08 10:11:30: }
+2020-09-08 10:11:42: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:11:42:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:11:42:   errno: 'ECONNREFUSED',
+2020-09-08 10:11:42:   code: 'ECONNREFUSED',
+2020-09-08 10:11:42:   syscall: 'connect',
+2020-09-08 10:11:42:   address: '127.0.0.1',
+2020-09-08 10:11:42:   port: 6379
+2020-09-08 10:11:42: }
+2020-09-08 10:11:43: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:11:43:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:11:43:   errno: 'ECONNREFUSED',
+2020-09-08 10:11:43:   code: 'ECONNREFUSED',
+2020-09-08 10:11:43:   syscall: 'connect',
+2020-09-08 10:11:43:   address: '127.0.0.1',
+2020-09-08 10:11:43:   port: 6379
+2020-09-08 10:11:43: }
+2020-09-08 10:11:43: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:11:43:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:11:43:   errno: 'ECONNREFUSED',
+2020-09-08 10:11:43:   code: 'ECONNREFUSED',
+2020-09-08 10:11:43:   syscall: 'connect',
+2020-09-08 10:11:43:   address: '127.0.0.1',
+2020-09-08 10:11:43:   port: 6379
+2020-09-08 10:11:43: }
+2020-09-08 10:11:44: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:11:44:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:11:44:   errno: 'ECONNREFUSED',
+2020-09-08 10:11:44:   code: 'ECONNREFUSED',
+2020-09-08 10:11:44:   syscall: 'connect',
+2020-09-08 10:11:44:   address: '127.0.0.1',
+2020-09-08 10:11:44:   port: 6379
+2020-09-08 10:11:44: }
+2020-09-08 10:11:45: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:11:45:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:11:45:   errno: 'ECONNREFUSED',
+2020-09-08 10:11:45:   code: 'ECONNREFUSED',
+2020-09-08 10:11:45:   syscall: 'connect',
+2020-09-08 10:11:45:   address: '127.0.0.1',
+2020-09-08 10:11:45:   port: 6379
+2020-09-08 10:11:45: }
+2020-09-08 10:11:46: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:11:46:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:11:46:   errno: 'ECONNREFUSED',
+2020-09-08 10:11:46:   code: 'ECONNREFUSED',
+2020-09-08 10:11:46:   syscall: 'connect',
+2020-09-08 10:11:46:   address: '127.0.0.1',
+2020-09-08 10:11:46:   port: 6379
+2020-09-08 10:11:46: }
+2020-09-08 10:11:49: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:11:49:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:11:49:   errno: 'ECONNREFUSED',
+2020-09-08 10:11:49:   code: 'ECONNREFUSED',
+2020-09-08 10:11:49:   syscall: 'connect',
+2020-09-08 10:11:49:   address: '127.0.0.1',
+2020-09-08 10:11:49:   port: 6379
+2020-09-08 10:11:49: }
+2020-09-08 10:11:54: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:11:54:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:11:54:   errno: 'ECONNREFUSED',
+2020-09-08 10:11:54:   code: 'ECONNREFUSED',
+2020-09-08 10:11:54:   syscall: 'connect',
+2020-09-08 10:11:54:   address: '127.0.0.1',
+2020-09-08 10:11:54:   port: 6379
+2020-09-08 10:11:54: }
+2020-09-08 10:12:02: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:02:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:02:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:02:   code: 'ECONNREFUSED',
+2020-09-08 10:12:02:   syscall: 'connect',
+2020-09-08 10:12:02:   address: '127.0.0.1',
+2020-09-08 10:12:02:   port: 6379
+2020-09-08 10:12:02: }
+2020-09-08 10:12:12: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:12:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:12:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:12:   code: 'ECONNREFUSED',
+2020-09-08 10:12:12:   syscall: 'connect',
+2020-09-08 10:12:12:   address: '127.0.0.1',
+2020-09-08 10:12:12:   port: 6379
+2020-09-08 10:12:12: }
+2020-09-08 10:12:12: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:12:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:12:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:12:   code: 'ECONNREFUSED',
+2020-09-08 10:12:12:   syscall: 'connect',
+2020-09-08 10:12:12:   address: '127.0.0.1',
+2020-09-08 10:12:12:   port: 6379
+2020-09-08 10:12:12: }
+2020-09-08 10:12:13: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:13:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:13:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:13:   code: 'ECONNREFUSED',
+2020-09-08 10:12:13:   syscall: 'connect',
+2020-09-08 10:12:13:   address: '127.0.0.1',
+2020-09-08 10:12:13:   port: 6379
+2020-09-08 10:12:13: }
+2020-09-08 10:12:13: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:13:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:13:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:13:   code: 'ECONNREFUSED',
+2020-09-08 10:12:13:   syscall: 'connect',
+2020-09-08 10:12:13:   address: '127.0.0.1',
+2020-09-08 10:12:13:   port: 6379
+2020-09-08 10:12:13: }
+2020-09-08 10:12:14: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:14:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:14:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:14:   code: 'ECONNREFUSED',
+2020-09-08 10:12:14:   syscall: 'connect',
+2020-09-08 10:12:14:   address: '127.0.0.1',
+2020-09-08 10:12:14:   port: 6379
+2020-09-08 10:12:14: }
+2020-09-08 10:12:16: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:16:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:16:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:16:   code: 'ECONNREFUSED',
+2020-09-08 10:12:16:   syscall: 'connect',
+2020-09-08 10:12:16:   address: '127.0.0.1',
+2020-09-08 10:12:16:   port: 6379
+2020-09-08 10:12:16: }
+2020-09-08 10:12:18: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:18:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:18:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:18:   code: 'ECONNREFUSED',
+2020-09-08 10:12:18:   syscall: 'connect',
+2020-09-08 10:12:18:   address: '127.0.0.1',
+2020-09-08 10:12:18:   port: 6379
+2020-09-08 10:12:18: }
+2020-09-08 10:12:18: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:18:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:18:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:18:   code: 'ECONNREFUSED',
+2020-09-08 10:12:18:   syscall: 'connect',
+2020-09-08 10:12:18:   address: '127.0.0.1',
+2020-09-08 10:12:18:   port: 6379
+2020-09-08 10:12:18: }
+2020-09-08 10:12:18: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:18:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:18:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:18:   code: 'ECONNREFUSED',
+2020-09-08 10:12:18:   syscall: 'connect',
+2020-09-08 10:12:18:   address: '127.0.0.1',
+2020-09-08 10:12:18:   port: 6379
+2020-09-08 10:12:18: }
+2020-09-08 10:12:19: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:19:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:19:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:19:   code: 'ECONNREFUSED',
+2020-09-08 10:12:19:   syscall: 'connect',
+2020-09-08 10:12:19:   address: '127.0.0.1',
+2020-09-08 10:12:19:   port: 6379
+2020-09-08 10:12:19: }
+2020-09-08 10:12:20: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:20:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:20:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:20:   code: 'ECONNREFUSED',
+2020-09-08 10:12:20:   syscall: 'connect',
+2020-09-08 10:12:20:   address: '127.0.0.1',
+2020-09-08 10:12:20:   port: 6379
+2020-09-08 10:12:20: }
+2020-09-08 10:12:21: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:21:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:21:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:21:   code: 'ECONNREFUSED',
+2020-09-08 10:12:21:   syscall: 'connect',
+2020-09-08 10:12:21:   address: '127.0.0.1',
+2020-09-08 10:12:21:   port: 6379
+2020-09-08 10:12:21: }
+2020-09-08 10:12:24: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:24:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:24:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:24:   code: 'ECONNREFUSED',
+2020-09-08 10:12:24:   syscall: 'connect',
+2020-09-08 10:12:24:   address: '127.0.0.1',
+2020-09-08 10:12:24:   port: 6379
+2020-09-08 10:12:24: }
+2020-09-08 10:12:29: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:29:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:29:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:29:   code: 'ECONNREFUSED',
+2020-09-08 10:12:29:   syscall: 'connect',
+2020-09-08 10:12:29:   address: '127.0.0.1',
+2020-09-08 10:12:29:   port: 6379
+2020-09-08 10:12:29: }
+2020-09-08 10:12:37: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:37:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:37:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:37:   code: 'ECONNREFUSED',
+2020-09-08 10:12:37:   syscall: 'connect',
+2020-09-08 10:12:37:   address: '127.0.0.1',
+2020-09-08 10:12:37:   port: 6379
+2020-09-08 10:12:37: }
+2020-09-08 10:12:51: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:12:51:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:12:51:   errno: 'ECONNREFUSED',
+2020-09-08 10:12:51:   code: 'ECONNREFUSED',
+2020-09-08 10:12:51:   syscall: 'connect',
+2020-09-08 10:12:51:   address: '127.0.0.1',
+2020-09-08 10:12:51:   port: 6379
+2020-09-08 10:12:51: }
+2020-09-08 10:13:15: redis error Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-09-08 10:13:15:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16) {
+2020-09-08 10:13:15:   errno: 'ECONNREFUSED',
+2020-09-08 10:13:15:   code: 'ECONNREFUSED',
+2020-09-08 10:13:15:   syscall: 'connect',
+2020-09-08 10:13:15:   address: '127.0.0.1',
+2020-09-08 10:13:15:   port: 6379
+2020-09-08 10:13:15: }
